@@ -83,12 +83,12 @@ WSGI_APPLICATION = 'src.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
-load_dotenv()
-POSTGRES_DB = os.getenv('POSTGRES_DB')
+# load_dotenv()
+POSTGRES_DB = os.getenv('POSTGRES_DB', )
 POSTGRES_USER = os.getenv('POSTGRES_USER')
 POSTGRES_PASSWORD = os.getenv('POSTGRES_PASSWORD')
 POSTGRES_HOST = os.getenv('POSTGRES_HOST')
-POSTGRES_PORT = int(os.getenv('POSTGRES_PORT'))
+POSTGRES_PORT = os.getenv('POSTGRES_PORT')
 
 DATABASES = {
     'default': {
