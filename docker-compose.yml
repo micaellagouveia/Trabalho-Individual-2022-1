@@ -10,6 +10,8 @@ services:
 
     env_file:
       - ./library_back/.env
+    networks:
+      - library-network
 
 
   library_back:
@@ -17,14 +19,17 @@ services:
       context: .
       dockerfile: docker/back.Dockerfile
     command: ["sh", "start.sh"]
-    ports:
-      - 8000:8000
+    # ports:
+    #   - 8000:8000
     env_file:
       - ./library_back/.env
     volumes:
       - ./library_back:/library_back
+      - ./library_back/static:/static/
     depends_on:
       - library_db
+    networks:
+      - library-network
 
 
   library_front:
@@ -38,6 +43,28 @@ services:
       - 3000:3000
     depends_on:
       - library_db
+    networks:
+      - library-network
   
+
+  nginx:
+    image: nginx
+    volumes:
+      - ./config:/etc/nginx/conf.d
+      - ./library_back/static:/static/
+    ports:
+        - "82:82"
+    depends_on:
+      - library_back
+    networks:
+      - library-network
+
+
 volumes:
   postgres_db_data:
+
+
+networks:
+  library-network:
+    name: library-network
+    driver: bridge

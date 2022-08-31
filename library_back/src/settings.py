@@ -151,3 +151,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #         'rest_framework.permissions.IsAuthenticated'
 #    ),
 # }
+
+STATIC_ROOT = "/static/"
+STATIC_URL = "/static/"
