@@ -51,6 +51,24 @@ jobs:
         run: |
           pip install pycodestyle
           pycodestyle --statistics library_back/.
+      
+      - name: Run Migrations # run migrations to create table in side car db container
+        run: python library_back/manage.py migrate
+        env:
+          POSTGRES_HOST: localhost
+          POSTGRES_DB: postgres
+          POSTGRES_USER: postgres
+          POSTGRES_PORT: 5432
+          POSTGRES_PASSWORD: password
+
+      - name: Run Test with django manage.py test # running tests
+        run: python library_back/manage.py test
+        env:
+          POSTGRES_HOST: localhost
+          POSTGRES_DB: postgres
+          POSTGRES_USER: postgres
+          POSTGRES_PORT: 5432
+          POSTGRES_PASSWORD: password
 
       # - name: Python static code analysis with pylint
       #   run: |
