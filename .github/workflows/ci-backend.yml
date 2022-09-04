@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  Explore-GitHub-Actions:
+  CI-Library_Back:
     runs-on: ubuntu-latest
 
     services:

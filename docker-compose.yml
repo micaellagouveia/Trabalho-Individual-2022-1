@@ -9,7 +9,7 @@ services:
       - postgres_db_data:/var/lib/postgresql/data
 
     env_file:
-      - ./library_back/.env
+      - ./library_back/.env-sample
     networks:
       - library-network
 
@@ -22,7 +22,7 @@ services:
     # ports:
     #   - 8000:8000
     env_file:
-      - ./library_back/.env
+      - ./library_back/.env-sample
     volumes:
       - ./library_back:/library_back
       - ./library_back/static:/static/
@@ -38,11 +38,8 @@ services:
       dockerfile: docker/front.Dockerfile
     volumes:
       - ./library_front:/library_front
-    command: ["npm", "start"]
     ports:
       - 3000:3000
-    depends_on:
-      - library_db
     networks:
       - library-network
   
