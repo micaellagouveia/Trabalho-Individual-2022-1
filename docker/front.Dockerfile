@@ -4,6 +4,6 @@ COPY library_front /library_front
 
 WORKDIR /library_front
 
-RUN yarn install
+RUN yarn
 
 CMD ["yarn", "start"]
