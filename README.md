@@ -91,3 +91,8 @@ Alguns trabalhos de trabalhos anteriores:
 - [2020/2](https://github.com/FGA-GCES/Trabalho-Individual-2020-2)
 - [2021/1](https://github.com/FGA-GCES/Workshop-Docker-Entrega-01)
 - [2021/2](https://github.com/FGA-GCES/Trabalho-Individual-2021-2)
+
+
+# Links Deploys
+- Backend: https://library-back-gces-mica.herokuapp.com/api
+- Frontend: https://library-front-gces-mica.herokuapp.com/
