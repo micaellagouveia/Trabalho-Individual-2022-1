@@ -40,6 +40,8 @@ services:
       - 3000:3000
     networks:
       - library-network
+    environment:
+      - NODE_ENV=development
   
 
   nginx:
