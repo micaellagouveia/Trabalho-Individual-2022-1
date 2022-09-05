@@ -8,5 +8,5 @@ function getEnvVar(varName, defaultValue) {
 }
 
 export const BASE_API = axios.create({
-    baseURL: getEnvVar(BACKEND_HOST, 'http://localhost:82')
+    baseURL: getEnvVar('BACKEND_HOST', 'http://localhost:82')
 });
